@@ -1,0 +1,100 @@
+        <!-- header -->
+        {{ include('@admin/header.html') }}
+
+        <!-- 侧边导航栏 -->
+        <div class="left-sidebar">
+            <!-- 菜单 -->
+            {{ include('@admin/nav.html') }}
+        </div>
+
+
+        <!-- 内容区域 -->
+        <div class="tpl-content-wrapper" style="background: #fff;padding: 10px 10px;">
+            <div class="row am-cf">
+                <div class="am-u-sm-12 am-u-md-10">
+                    <div class="widget-head am-cf" style="border: 1px solid #ccc;">
+                        <input id="post_id" type="hidden" value="{{id}}" />
+                        <input id="post_title" class="title" type="text" placeholder="Title" value="{{title}}" style="width: 100%;" />
+                        <div style="margin-top:10px;" id="test-editormd"></div>
+                    </div>
+                </div>
+
+                <div class="am-u-sm-12 am-u-md-2">
+                    <div class="widget am-cf" >
+                        <div class="widget-head am-cf">
+                            <div class="widget-title am-fl">更新</div>
+                        </div>
+                        <div style="text-align: center;margin-top: 20px;">
+                            <button id="js_update_btn" type="button" class="am-btn am-btn-default am-btn-success">UPDATE</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="am-u-sm-12 am-u-md-2">
+                    <div class="widget am-cf" >
+                        <div class="widget-head am-cf">
+                            <div class="widget-title am-fl">分类</div>
+                        </div>
+                        <div class="widget-category" style="padding: 10px;">
+                            <ul>
+                                {% for cate in cates %}
+                                <li><input name="category" type="checkbox" value="{{cate.term_id}}"> {{cate.name}}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="am-u-sm-12 am-u-md-2">
+                    <div class="widget am-cf" >
+                        <div class="widget-head am-cf">
+                            <div class="widget-title am-fl">标签</div>
+                        </div>
+                        <div style="padding: 10px;"><input id="tags" type="text" class="am-radius" placeholder="多个标签请用英文逗号（,）分开" value="{{label}}" /></div>
+                    </div>
+                </div>
+
+                <div class="am-u-sm-12 am-u-md-2">
+                    <div class="widget am-cf" >
+                        <div class="widget-head am-cf">
+                            <div class="widget-title am-fl">缩列图</div>
+                        </div>
+                        <div class="widget-category" style="padding-left: 15px;font-size: 12px;overflow: hidden">
+                            <a href="javascript:void(0)" id="doc-prompt-toggle">设为缩略图</a>
+                            <div id="thumbnail_cotainer" style="padding: 10px 0;">
+                                {% if thumb is not null %}
+                                    <img style="width: 200px;height: 150px;" src="{{thumb}}" />
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <link rel="stylesheet" href="{{JS_CSS_DOMAIN}}assets/js/editor.md/css/editormd.min.css">
+        <link rel="stylesheet" href="{{JS_CSS_DOMAIN}}assets/css/jquery.tagsinput.css">
+        <script src="{{JS_CSS_DOMAIN}}assets/js/jquery.tagsinput.js"></script>
+        <script src="{{JS_CSS_DOMAIN}}assets/js/amazeui.min.js"></script>
+        <script src="{{JS_CSS_DOMAIN}}assets/js/editor.md/lib/raphael.min.js"></script>
+        <script src="{{JS_CSS_DOMAIN}}assets/js/sea.js"></script>
+        <script type="text/javascript">
+            seajs.use('{{JS_CSS_DOMAIN}}assets/js/mblog.main',function(main){
+                main.load('mblog.markdown');
+            });
+        </script>
+        <script>
+            var post = {
+                content : '{{content}}',
+                category: '{{category}}'
+            }
+            $('#tags').tagsInput({
+                'height':'100px',
+                'width' :'100%',
+                'defaultText':'添加标签'
+            });
+        </script>
+</body>
+
+</html>

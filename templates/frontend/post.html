@@ -1,0 +1,78 @@
+<!-- header -->
+{{ include('@front/header.html') }}
+
+<!-- body -->
+<body id="blog-article-sidebar">
+<!-- nav start -->
+{{ include('@front/nav.html') }}
+<!-- nav end -->
+<!-- content srart -->
+<div class="am-g am-g-fixed blog-fixed blog-content">
+    <div class="am-u-sm-12">
+      <article class="am-article blog-article-p">
+        <div class="am-article-hd">
+          <h1 class="am-article-title blog-text-center">{{ title }}</h1>
+          <p class="am-article-meta blog-text-center">
+              <span>
+                  {% for cate in post_cates %}
+                  <a href="../cat/{{ cate.slug }}" class="blog-color">{{ cate.name }} &nbsp;</a>
+                  {% endfor %}
+              </span>-
+              <span>@{{ author }} &nbsp;</span>-
+              <span>{{ date }}</span>
+          </p>
+        </div>        
+        <div class="am-article-bd">
+            {{ content|raw }}
+        </div>
+      </article>
+        
+        <div class="am-g blog-article-widget blog-article-margin">
+          <div class="am-u-lg-4 am-u-md-5 am-u-sm-7 am-u-sm-centered blog-text-center">
+            <span class="am-icon-tags"> &nbsp;</span>
+              {% for label in labels %}
+              <a href="{{ DOMAIN }}tag/{{ label.label }}">{{ label.label }}</a>
+              {% endfor %}
+          </div>
+        </div>
+
+        <hr>
+        <div class="am-g blog-author blog-article-margin">
+          <div class="am-u-sm-3 am-u-md-3 am-u-lg-2">
+            <img src="{{ author_avatar }}" alt="" class="blog-author-img am-circle">
+          </div>
+          <div class="am-u-sm-9 am-u-md-9 am-u-lg-10">
+          <h3><span>作者 &nbsp;: &nbsp;</span><span class="blog-color">{{ author }}</span></h3>
+            <p>{{ author_profile }}</p>
+          </div>
+        </div>
+        <ul class="am-pagination blog-article-margin">
+          <li class="am-pagination-prev"><a href="{{ last_id }}" class="">&laquo; {{ last_title }}</a></li>
+          <li class="am-pagination-next"><a href="{{ next_id }}">{{ next_title }} &raquo;</a></li>
+        </ul>
+
+        <!-- UY BEGIN -->
+        <div id="uyan_frame"></div>
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js"></script>
+        <!-- UY END -->
+    </div>
+</div>
+<!-- content end -->
+
+<!-- footer -->
+{{ include('@front/footer.html') }}
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="{{JS_CSS_DOMAIN}}assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="{{JS_CSS_DOMAIN}}assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="{{JS_CSS_DOMAIN}}assets/js/amazeui.min.js"></script>
+<!-- <script src="assets/js/app.js"></script> -->
+</body>
+</html>

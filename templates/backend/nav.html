@@ -1,0 +1,45 @@
+<!-- 用户信息 -->
+<div class="tpl-sidebar-user-panel">
+    <div class="tpl-user-panel-slide-toggleable">
+        <div class="tpl-user-panel-profile-picture">
+            <img src="{{JS_CSS_DOMAIN}}assets/img/user01.png" alt="">
+        </div>
+                    <span class="user-panel-logged-in-text">
+              <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
+              Jacoob
+          </span>
+    </div>
+</div>
+
+<ul class="sidebar-nav">
+    <li class="sidebar-nav-link">
+        <a {% if page == "home" %} class="active" {% endif %} href="/blog2/admin/home">
+            <i class="am-icon-home sidebar-nav-link-logo"></i> Home
+        </a>
+    </li>
+    <li class="sidebar-nav-link">
+        <a {% if page == "new" %} class="active" {% endif %} href="/blog2/admin/new-post">
+            <i class="am-icon-pencil sidebar-nav-link-logo"></i> New Post
+        </a>
+    </li>
+    <li class="sidebar-nav-link">
+        <a {% if page == "post" %} class="active" {% endif %} href="/blog2/admin/post">
+            <i class="am-icon-wpforms sidebar-nav-link-logo"></i> Posts
+        </a>
+    </li>
+    <li class="sidebar-nav-link">
+        <a {% if page == "category" %} class="active" {% endif %} href="/blog2/admin/category">
+            <i class="am-icon-list-alt sidebar-nav-link-logo"></i> Category
+        </a>
+    </li>
+    <li class="sidebar-nav-link">
+        <a {% if page == "setting" %} class="active" {% endif %} href="/blog2/admin/setting">
+        <i class="am-icon-cog sidebar-nav-link-logo"></i> Setting
+        </a>
+    </li>
+    <li class="sidebar-nav-link">
+        <a {% if page == "user" %} class="active" {% endif %} href="/blog2/admin/user">
+        <i class="am-icon-user sidebar-nav-link-logo"></i> User
+        </a>
+    </li>
+</ul>

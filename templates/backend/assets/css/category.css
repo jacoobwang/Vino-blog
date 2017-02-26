@@ -1,0 +1,33 @@
+.tpl-content-wrapper .cate {
+    margin-left: 20px;
+}
+.tpl-content-wrapper .cate .left {
+    width: 40%;
+    float: left;
+}
+.tpl-content-wrapper .cate .right {
+    width: 55%;
+    float: right;
+}
+.tpl-content-wrapper .cate .left h2 {
+    font-size: 16px;
+}
+.tpl-content-wrapper .cate input {
+    width: 95%;
+    border: 1px solid #ddd;
+}
+.tpl-content-wrapper .cate label {
+    display: block;
+    font-size: 13px;
+    font-weight: 100;
+}
+.tpl-content-wrapper .cate p {
+    font-size: 13px;
+    margin-top: 5px;
+}
+.tpl-content-wrapper .cate table th {
+    color: #000000;
+}
+.theme-black .tpl-table-black tbody > tr > td {
+    background: #0075b0;
+}

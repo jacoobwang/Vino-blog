@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mblog后台管理界面</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="{{JS_CSS_DOMAIN}}assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="{{JS_CSS_DOMAIN}}assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="stylesheet" href="{{JS_CSS_DOMAIN}}assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="{{JS_CSS_DOMAIN}}assets/css/amazeui.datatables.min.css" />
+    <link rel="stylesheet" href="{{JS_CSS_DOMAIN}}assets/css/app.css">
+    <script src="{{JS_CSS_DOMAIN}}assets/js/jquery.min.js"></script>
+
+</head>
+
+<body data-type="{{type}}">
+<div class="am-g tpl-g">
+    <!-- 头部 -->
+    <header>
+        <!-- logo -->
+        <div class="am-fl tpl-header-logo">
+            <a href="javascript:;"><img src="{{JS_CSS_DOMAIN}}assets/img/logo.png" alt=""></a>
+        </div>
+        <!-- 右侧内容 -->
+        <div class="tpl-header-fluid">
+            <!-- 侧边切换 -->
+            <div class="am-fl tpl-header-switch-button am-icon-list">
+                    <span>
+
+                </span>
+            </div>
+            <!-- 搜索 -->
+            <div class="am-fl tpl-header-navbar">
+                <a href="{{ DOMAIN }}" target="_blank">查看我的博客</a>
+            </div>
+            <!-- 其它功能-->
+            <div class="am-fr tpl-header-navbar">
+                <ul>
+                    <!-- 欢迎语 -->
+                    <li class="am-text-sm tpl-header-navbar-welcome">
+                        <a href="javascript:;">欢迎你, <span>{{user}}</span> </a>
+                    </li>
+
+                    <!-- 退出 -->
+                    <li class="am-text-sm">
+                        <a href="{{DOMAIN}}admin/logout">
+                            <span class="am-icon-sign-out"></span> 退出
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </header>

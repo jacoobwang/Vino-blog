@@ -1,0 +1,102 @@
+<!-- header -->
+{{ include('@front/header.html') }}
+
+<!-- body -->
+<body id="blog">
+<!-- nav start -->
+{{ include('@front/nav.html') }}
+<!-- nav end -->
+<!-- banner start -->
+<div class="am-g am-g-fixed blog-fixed am-u-sm-centered blog-article-margin">
+    <div data-am-widget="slider" class="am-slider am-slider-b1" data-am-slider='{&quot;controlNav&quot;:false}' >
+    <ul class="am-slides">
+      {% for banner in banners %}
+      <li>
+            <img style="height:500px; " src="{{ banner.post_origin }}">
+            <div class="blog-slider-desc am-slider-desc ">
+                <div class="blog-text-center blog-slider-con">
+                    <h1 class="blog-h-margin"><a href="post/{{ banner.id }}">{{ banner.post_title }}</a></h1>
+                    <p>{{ banner.post_desc }}</p>
+                    <span class="blog-bor">{{ banner.post_date }}</span>
+                    <br><br><br><br><br><br><br>                
+                </div>
+            </div>
+      </li>
+      {% endfor %}
+    </ul>
+    </div>
+</div>
+<!-- banner end -->
+
+<!-- content srart -->
+<div class="am-g am-g-fixed blog-fixed">
+    <div class="am-u-md-8 am-u-sm-12">
+        <div id="article-container">
+            {% for post in posts %}
+            <article class="am-g blog-entry-article">
+                <div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
+                    <img src="{{ post.post_origin }}" alt="" class="am-u-sm-12">
+                </div>
+                <div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
+                    <span> @{{ post.user_nickname }} &nbsp;</span>
+                    <span>{{ post.post_date }}</span>
+                    <h1><a target="_blank" href="post/{{ post.id }}">{{ post.post_title }}</a></h1>
+                    <p>{{ post.post_desc }}...</p>
+                    <p><a target="_blank" href="post/{{ post.id }}" class="blog-continue">continue reading</a></p>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+        
+        <ul class="am-pagination">
+          <li class="am-pagination-prev"><a href="javascript:void(0);">&laquo; Prev</a></li>
+          <li class="am-pagination-next"><a href="javascript:void(0);">Next &raquo;</a></li>
+          <li class="am-pagination-num">
+              Page <strong class="normal" id="page_num">1</strong> of <strong class="normal" id="page_total">{{total}}</strong>
+          </li>
+        </ul>
+    </div>
+
+    <div class="am-u-md-4 am-u-sm-12 blog-sidebar">
+        <div class="blog-sidebar-widget blog-bor">
+            <h2 class="blog-text-center blog-title"><span>About ME</span></h2>
+            <img src="{{ admin_avatar }}" alt="about me" class="blog-entry-img" >
+            <p>{{ admin_name }}</p>
+            <p>{{ admin_profile|raw }}</p>
+        </div>
+        <div class="blog-sidebar-widget blog-bor">
+            <h2 class="blog-text-center blog-title"><span>Contact ME</span></h2>
+            <p>
+                <a href="{{ admin_github }}" target="_blank"><span class="am-icon-github am-icon-fw blog-icon"></span></a>
+                <a href="{{ admin_weibo }}" target="_blank"><span class="am-icon-weibo am-icon-fw blog-icon"></span></a>
+            </p>
+        </div>
+        <div class="blog-clear-margin blog-sidebar-widget blog-bor am-g ">
+            <h2 class="blog-title"><span>TAG cloud</span></h2>
+            <div class="am-u-sm-12 blog-clear-padding">
+            {% for label in labels %}
+            <a target="_blank" href="{{ DOMAIN }}tag/{{ label.label }}" class="blog-tag">{{ label.label }}</a>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- content end -->
+
+
+<!-- footer -->
+{{ include('@front/footer.html') }}
+
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="{{JS_CSS_DOMAIN}}assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="{{JS_CSS_DOMAIN}}assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="{{JS_CSS_DOMAIN}}assets/js/amazeui.min.js"></script>
+<script type="text/javascript" src="{{JS_CSS_DOMAIN}}assets/js/app.js"></script>
+</body>
+</html>

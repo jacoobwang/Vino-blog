@@ -1,0 +1,53 @@
+<!-- header -->
+{{ include('@front/header.html') }}
+
+
+<body id="blog">
+<!-- nav start -->
+{{ include('@front/nav.html') }}
+<!-- nav end -->
+
+<!-- content srart -->
+<div class="am-g am-g-fixed blog-fixed">
+    <div class="am-u-md-12 am-u-sm-12">
+        <div id="article-container">
+        {% for post in posts %}
+        <article class="am-g blog-entry-article">
+            <div class="am-u-md-12 am-u-sm-12 blog-entry-text">
+                <span> @{{ post.user_nickname }} &nbsp;</span>
+                <span>{{ post.post_date }}</span>
+                <h1><a target="_blank" href="{{ DOMAIN }}post/{{ post.id }}">{{ post.post_title }}</a></h1>
+                <p>{{ post.post_desc }}...</p>
+            </div>
+        </article>
+        {% endfor %}
+        </div>
+
+        <ul class="am-pagination">
+          <li class="am-pagination-prev"><a href="javascript:void(0)">&laquo; Prev</a></li>
+          <li class="am-pagination-num">
+            Page <strong class="normal" id="page_num">1</strong> of <strong class="normal" id="page_total">{{ total }}</strong>
+          </li>
+          <li class="am-pagination-next"><a href="javascript:void(0)">Next &raquo;</a></li>
+        </ul>
+    </div>
+
+</div>
+<div id="category_id" style="display: none;">{{ catId }}</div>
+<!-- content end -->
+
+<!-- footer -->
+{{ include('@front/footer.html') }}
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="{{JS_CSS_DOMAIN}}assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="{{JS_CSS_DOMAIN}}assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="{{JS_CSS_DOMAIN}}assets/js/amazeui.min.js"></script>
+<script src="{{JS_CSS_DOMAIN}}assets/js/app.js"></script>
+</body>
+</html>

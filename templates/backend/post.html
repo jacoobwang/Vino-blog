@@ -1,0 +1,132 @@
+
+        <!-- header -->
+        {{ include('@admin/header.html') }}
+
+        <!-- 风格切换 -->
+        <div class="tpl-skiner">
+            <div class="tpl-skiner-toggle am-icon-cog">
+            </div>
+            <div class="tpl-skiner-content">
+                <div class="tpl-skiner-content-title">
+                    选择主题
+                </div>
+                <div class="tpl-skiner-content-bar">
+                    <span class="skiner-color skiner-white" data-color="theme-white"></span>
+                    <span class="skiner-color skiner-black" data-color="theme-black"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 侧边导航栏 -->
+        <div class="left-sidebar">
+
+            <!-- 菜单 -->
+            {{ include('@admin/nav.html') }}
+        </div>
+
+
+        <!-- 内容区域 -->
+        <div class="tpl-content-wrapper">
+            <div class="row-content am-cf">
+                <div class="row">
+                    <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                        <div class="widget am-cf">
+                            <div class="widget-head am-cf">
+                                <div class="widget-title  am-cf">文章列表</div>
+
+
+                            </div>
+                            <div class="widget-body  am-fr">
+
+                                <div class="am-u-sm-12 am-u-md-6 am-u-lg-6">
+                                    <div class="am-form-group">
+                                        <div class="am-btn-toolbar">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="am-u-sm-12 am-u-md-6 am-u-lg-3">
+                                    <div class="am-form-group tpl-table-list-select">
+                                        <select data-am-selected="{btnSize: 'sm'}">
+                                            <option value="-1">所有类别</option>
+                                            {% for cate in cates %}
+                                            <option value="{{cate.term_id}}"> {{cate.name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="am-u-sm-12 am-u-md-12 am-u-lg-3">
+                                    <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
+                                        <input type="text" class="am-form-field ">
+                                        <span class="am-input-group-btn">
+            <button class="am-btn  am-btn-default am-btn-success tpl-table-list-field am-icon-search" type="button"></button>
+          </span>
+                                    </div>
+                                </div>
+
+                                <div class="am-u-sm-12">
+                                    <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black ">
+                                        <thead>
+                                            <tr>
+                                                <th>文章缩略图</th>
+                                                <th>文章标题</th>
+                                                <th>作者</th>
+                                                <th>时间</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="list_container">
+                                            {% for data in datas %}
+                                            <tr class="gradeX">
+                                                <td>
+                                                    <img src="{{data.post_thumb}}" class="tpl-table-line-img" alt="">
+                                                </td>
+                                                <td class="am-text-middle">{{data.post_title}}</td>
+                                                <td class="am-text-middle">{{data.user_nickname}}</td>
+                                                <td class="am-text-middle">{{data.post_date}}</td>
+                                                <td class="am-text-middle">
+                                                    <div class="tpl-table-black-operation">
+                                                        <a href="{{edit_prefix}}{{data.id}}">
+                                                            <i class="am-icon-pencil"></i> 编辑
+                                                        </a>
+                                                        <a href="{{del_prefix}}{{data.id}}" class="tpl-table-black-operation-del">
+                                                            <i class="am-icon-trash"></i> 删除
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                            <!-- more data -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="am-u-lg-12 am-cf">
+
+                                    <div class="am-fr">
+                                        <ul class="am-pagination tpl-pagination">
+                                            <li><a class="pagination-last" href="javascript:void(0)">«</a></li>
+                                            <!--{% for num in 1..total%}-->
+                                            <!--<li {% if num == 1%} class="am-active" {% endif %}><a style="cursor: default" href="javascript:void(0)">{{num}}</a></li>-->
+                                            <!--{% endfor %}-->
+                                            <li>Page <strong id="page_num">1</strong> of <strong id="page_total">{{total}}</strong></li>
+                                            <li><a class="pagination-next" href="javascript:void(0)">»</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="{{JS_CSS_DOMAIN}}assets/js/amazeui.min.js"></script>
+    <script src="{{JS_CSS_DOMAIN}}assets/js/sea.js"></script>
+    <script type="text/javascript">
+        seajs.use('{{JS_CSS_DOMAIN}}assets/js/mblog.main',function(main){
+            main.load('mblog.post.list');
+        });
+    </script>
+</body>
+
+</html>
