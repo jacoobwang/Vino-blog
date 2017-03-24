@@ -7,10 +7,11 @@
  */
 namespace Ecc\Topic\Controller;
 
-use Mphp\UploadHandler;
-use Mphp\Utils;
+use vino\UploadHandler;
+use vino\Utils;
+use vino\Qiniu;
 
-class UploadController extends \Mphp\BaseController
+class UploadController extends \Vino\BaseController
 {
 
     /**
@@ -48,6 +49,33 @@ class UploadController extends \Mphp\BaseController
             ];
         }
         echo json_encode($res);
-    }
+	}
+
+	/**
+	 * qiniu upload
+	 */
+	public function uploadQiniuAction(){
+		if(!empty($_FILES)){
+			$name = $_FILES['upload-image-file']['name'];
+			$path = $_FILES['upload-image-file']['tmp_name'];
+		}
+
+		$accessKey = 'QSAoVUSJKWp9SiWmlVgIXKRJbv-ckHK5bbED8TtE';
+		$secretKey = 'xU58XQ11ZeM574D0ELrs7VJ_UoQ2QnVLFda6O5Rd';
+		$bucket	   = 'jacoob';
+
+		$Qiniu = new Qiniu($accessKey, $secretKey, $bucket);
+		
+		$ret   = $Qiniu->upload($name, $path);
+		if($ret){
+			$url = 'http://o813ojjy0.bkt.clouddn.com/'.$ret['key'];
+			$res = [
+                'success' => 1,
+                'message' => '上传陈功',
+                'url' => $url,
+                'thumb'=> $url
+            ];
+		}
+	}
 
 }

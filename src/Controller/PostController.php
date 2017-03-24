@@ -6,7 +6,7 @@ use Ecc\Topic\Service\CateService;
 use Ecc\Topic\Service\PostService;
 use Ecc\Topic\Service\SettingService;
 
-class PostController extends \Mphp\BaseController{
+class PostController extends \Vino\BaseController{
 
 
     /**
@@ -24,7 +24,7 @@ class PostController extends \Mphp\BaseController{
 
       	$view = $this->di('twig');
       	echo $view->render('@front/index.html', array(
-      		'JS_CSS_DOMAIN' => BASE_URL.'templates/frontend/',
+      		'JS_CSS_DOMAIN' => BASE_URL.'/templates/frontend/',
       		'title'         => $set_data['site_title'],
             'description'   => $set_data['site_desc'],
             'logo'          => $set_data['site_logo'],
@@ -42,7 +42,7 @@ class PostController extends \Mphp\BaseController{
 
         $view = $this->di('twig');
         echo $view->render('@front/lw-article-fullwidth.html', array(
-            'JS_CSS_DOMAIN' => BASE_URL.'templates/frontend/',
+            'JS_CSS_DOMAIN' => BASE_URL.'/templates/frontend/',
             'title'         => $post_data[0]['post_title'],
             'author'        => $post_data[0]['post_author'],
             'content'       => $post_data[0]['post_content']

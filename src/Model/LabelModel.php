@@ -8,10 +8,10 @@
 
 namespace Ecc\Topic\Model;
 
-use Mphp\App;
-use Mphp\Db;
-use Mphp\QSelect;
-use Mphp\QWhere;
+use Vino\App;
+use Vino\Db;
+use Vino\QSelect;
+use Vino\QWhere;
 
 class LabelModel
 {
@@ -33,7 +33,7 @@ class LabelModel
         $sel = QSelect::create()
             ->selectAll()
             ->from($this->table)
-            ->where(QWhere::create()->eq($column, $value));
+            ->where(QWhere::create()->eq($column, $value)->ne('label',''));
         return $this->model->fetchAll($sel);
     }
 

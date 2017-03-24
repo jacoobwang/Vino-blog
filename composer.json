@@ -2,11 +2,14 @@
   "autoload": { 
     "psr-4": {
       "Ecc\\Topic\\": "src/",
-	  "Mphp\\": "mphp/"		  
+      "console\\": "console/",
+	    "Vino\\": "vino/"		  
     }
   },
  "require": {
      "monolog/monolog": "1.10.0",
-     "twig/twig": "1.30.0"
+     "twig/twig": "1.30.0",
+     "filp/whoops": "^2.1",
+     "phpFastCache/phpFastCache": "^5.0"
  }	  
 }

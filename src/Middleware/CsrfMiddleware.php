@@ -2,8 +2,8 @@
 
 namespace Ecc\Topic\Middleware;
 
-use Mphp\Middleware;
-use Mphp\Response;
+use Vino\Middleware;
+use Vino\Response;
 
 /**
  * Class AuthMiddleware

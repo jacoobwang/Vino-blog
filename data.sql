@@ -32,7 +32,7 @@ CREATE TABLE `mblog_posts` (
   `post_md` text NOT NULL,
   `post_thumb` varchar(255) NOT NULL DEFAULT '',
   `post_origin` varchar(255) NOT NULL DEFAULT '',
-  `post_desc` varchar(255) NOT NULL DEFAULT '',
+  `post_desc` varchar(1000) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY (`post_author`),
   KEY `type_status_date` (`post_type`,`post_status`,`post_date`)

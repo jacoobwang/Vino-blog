@@ -54,7 +54,7 @@ class __TwigTemplate_9d42adbf495d55388668029ccd79065464a0a9c01f50256fb51f21161fe
             <div class=\"container-fluid am-cf\">
                 <div class=\"row\">
                     <div class=\"am-u-sm-12 am-u-md-12 am-u-lg-9\">
-                        <div class=\"page-header-heading\"><span class=\"am-icon-home page-header-heading-icon\"></span> Mblog 操作台<small>-mphp</small></div>
+                        <div class=\"page-header-heading\"><span class=\"am-icon-home page-header-heading-icon\"></span> Mblog 操作台<small>-vino</small></div>
                     </div>
                 </div>
 

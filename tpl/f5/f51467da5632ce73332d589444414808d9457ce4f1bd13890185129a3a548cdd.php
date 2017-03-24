@@ -20,7 +20,7 @@ class __TwigTemplate_ad0a42bd71ec088f8d162233df034c58bd1bd3da6fde6a906154c8a1360
 <html>
 <head>
     <meta charset=\"utf-8\">
-    <title>Welcome Mphp</title>
+    <title>Welcome vino</title>
     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">
     <meta http-equiv=\"Pragma\" content=\"no-cache\">
     <link rel=\"stylesheet\" type=\"text/css\" href=\"";
@@ -33,11 +33,11 @@ class __TwigTemplate_ad0a42bd71ec088f8d162233df034c58bd1bd3da6fde6a906154c8a1360
 \t<img src=\"";
         // line 12
         echo twig_escape_filter($this->env, (isset($context["JS_CSS_DOMAIN"]) ? $context["JS_CSS_DOMAIN"] : null), "html", null, true);
-        echo "/img/mphp-logo.png\">
+        echo "/img/vino-logo.png\">
 \t<h3 class=\"title\">Welcome ";
         // line 13
         echo twig_escape_filter($this->env, (isset($context["username"]) ? $context["username"] : null), "html", null, true);
-        echo ", <span class=\"red\" id=\"user\"></span> this is your page <br><a id=\"js_logout\" href=\"/mphp/logout\">Login out</a></h3>
+        echo ", <span class=\"red\" id=\"user\"></span> this is your page <br><a id=\"js_logout\" href=\"/vino/logout\">Login out</a></h3>
 </div>
 </body>
 </html>
@@ -69,6 +69,6 @@ class __TwigTemplate_ad0a42bd71ec088f8d162233df034c58bd1bd3da6fde6a906154c8a1360
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "user.html", "D:\\wamp\\www\\Mphp\\templates\\user.html");
+        return new Twig_Source("", "user.html", "D:\\wamp\\www\\vino\\templates\\user.html");
     }
 }

@@ -4,7 +4,7 @@ namespace Ecc\Topic\Controller;
 
 use Ecc\Topic\Service\UserService;
 
-class UserController extends \Mphp\BaseController{
+class UserController extends \Vino\BaseController{
 
     /**
      * 用户
@@ -18,7 +18,7 @@ class UserController extends \Mphp\BaseController{
 
         $view = $this->di('twig');
         echo $view->render('@admin/user.html', array(
-            'JS_CSS_DOMAIN' => BASE_URL.'templates/backend/',
+            'JS_CSS_DOMAIN' => BASE_URL.'/templates/backend/',
             'DOMAIN'        => BASE_URL,
             'page'          => 'user',
             'user'          => $user_login,
@@ -37,7 +37,7 @@ class UserController extends \Mphp\BaseController{
     public function registerAction(){
         $view = $this->di('twig');
         echo $view->render('@front/reg.html', array(
-            'JS_CSS_DOMAIN' => BASE_URL.'templates/frontend/'
+            'JS_CSS_DOMAIN' => BASE_URL.'/templates/frontend/'
         ));
     }
 

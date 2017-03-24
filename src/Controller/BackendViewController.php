@@ -10,18 +10,23 @@ use Ecc\Topic\Service\SettingService;
  * @desc handle view about backend
  * @package Ecc\Topic\Controller
  */
-class BackendViewController extends \Mphp\BaseController{
+class BackendViewController extends \Vino\BaseController{
 
+    private function _getUser() 
+    {
+        return $this->di('session')->get('user');
+    }
     /**
      * render index page
      */
-    public function indexAction(){
+    public function indexAction()
+    {
       	$view = $this->di('twig');
       	echo $view->render('@admin/index.html', array(
-      		'JS_CSS_DOMAIN' => BASE_URL.'templates/backend/',
+      		'JS_CSS_DOMAIN' => BASE_URL.'/templates/backend/',
             'DOMAIN'        => BASE_URL,
             'type'          => 'index',
-            'user'          => $this->getUser(),
+            'user'          => $this->_getUser(),
             'page'          => 'home'
       	));
     }
@@ -29,16 +34,17 @@ class BackendViewController extends \Mphp\BaseController{
     /**
      * render post publish page
      */
-    public function markdownAction(){
+    public function markdownAction()
+    {
         $view = $this->di('twig');
 
         $cate = new CateService();
         $cate_data  = $cate->listAll();
 
         echo $view->render('@admin/markdown.html', array(
-            'JS_CSS_DOMAIN' => BASE_URL.'templates/backend/',
+            'JS_CSS_DOMAIN' => BASE_URL.'/templates/backend/',
             'DOMAIN'        => BASE_URL,
-            'user'          => $this->getUser(),
+            'user'          => $this->_getUser(),
             'page'          => 'new',
             'cates'         => $cate_data
         ));
@@ -48,7 +54,8 @@ class BackendViewController extends \Mphp\BaseController{
      * render post edit page
      * @param $id
      */
-    public function editAction($id){
+    public function editAction($id)
+    {
         if(empty($id)) return;
 
         $cate = new CateService();
@@ -75,9 +82,9 @@ class BackendViewController extends \Mphp\BaseController{
         $view = $this->di('twig');
 
         echo $view->render('@admin/markdown-edit.html', array(
-            'JS_CSS_DOMAIN' => BASE_URL.'templates/backend/',
+            'JS_CSS_DOMAIN' => BASE_URL.'/templates/backend/',
             'DOMAIN'        => BASE_URL,
-            'user'          => $this->getUser(),
+            'user'          => $this->_getUser(),
             'page'          => 'post',
             'id'            => $id,
             'cates'         => $cate_data,
@@ -93,16 +100,17 @@ class BackendViewController extends \Mphp\BaseController{
     /**
      * render category page
      */
-    public function categoryAction(){
+    public function categoryAction()
+    {
         $view = $this->di('twig');
 
         $cate = new CateService();
         $data  = $cate->listAll();
 
         echo $view->render('@admin/category.html', array(
-            'JS_CSS_DOMAIN' => BASE_URL.'templates/backend/',
+            'JS_CSS_DOMAIN' => BASE_URL.'/templates/backend/',
             'DOMAIN'        => BASE_URL,
-            'user'          => $this->getUser(),
+            'user'          => $this->_getUser(),
             'page'          => 'category',
             'datas'         => $data,
             'edit_prefix'   => BASE_URL.'admin/category/edit/'
@@ -112,17 +120,18 @@ class BackendViewController extends \Mphp\BaseController{
     /**
      * render category edit page
      */
-    public function categoryEditAction($id){
+    public function categoryEditAction($id)
+    {
         $view = $this->di('twig');
 
         $cate = new CateService();
         $data  = $cate->listOne($id);
 
         echo $view->render('@admin/category-edit.html', array(
-            'JS_CSS_DOMAIN' => BASE_URL.'templates/backend/',
+            'JS_CSS_DOMAIN' => BASE_URL.'/templates/backend/',
             'DOMAIN'        => BASE_URL,
             'page'          => 'category',
-            'user'          => $this->getUser(),
+            'user'          => $this->_getUser(),
             'name'          => $data[0]['name'],
             'slug'          => $data[0]['slug'],
             'term_id'       => $data[0]['term_id']
@@ -132,7 +141,8 @@ class BackendViewController extends \Mphp\BaseController{
     /**
      * render post list page
      */
-    public function postAction(){
+    public function postAction()
+    {
         $post = new PostService();
         $post_data = $post->listAll();
         $total = $post->getPages();
@@ -142,25 +152,26 @@ class BackendViewController extends \Mphp\BaseController{
 
         $view = $this->di('twig');
         echo $view->render('@admin/post.html', array(
-            'JS_CSS_DOMAIN' => BASE_URL.'templates/backend/',
+            'JS_CSS_DOMAIN' => BASE_URL.'/templates/backend/',
             'DOMAIN'        => BASE_URL,
-            'user'          => $this->getUser(),
+            'user'          => $this->_getUser(),
             'page'          => 'post',
             'datas'         => $post_data,
             'cates'         => $cate_data,
             'total'         => $total,
-            'edit_prefix'   => BASE_URL.'admin/edit/',
-            'del_prefix'    => BASE_URL.'admin/delete/'
+            'edit_prefix'   => BASE_URL.'/admin/edit/',
+            'del_prefix'    => BASE_URL.'/admin/delete/'
         ));
     }
 
     /**
      * render login page
      */
-    public function loginAction(){
+    public function loginAction()
+    {
         $view = $this->di('twig');
         echo $view->render('@admin/login.html', array(
-            'JS_CSS_DOMAIN' => BASE_URL.'templates/backend/',
+            'JS_CSS_DOMAIN' => BASE_URL.'/templates/backend/',
             'DOMAIN'        => BASE_URL
         ));
     }
@@ -168,16 +179,17 @@ class BackendViewController extends \Mphp\BaseController{
     /**
      * render setting page
      */
-    public function settingAction(){
+    public function settingAction()
+    {
         $set = new SettingService();
         $ret = $set->getSettings();
 
         $view = $this->di('twig');
 
         echo $view->render('@admin/setting.html', array(
-            'JS_CSS_DOMAIN' => BASE_URL.'templates/backend/',
+            'JS_CSS_DOMAIN' => BASE_URL.'/templates/backend/',
             'DOMAIN'        => BASE_URL,
-            'user'          => $this->getUser(),
+            'user'          => $this->_getUser(),
             'page'          => 'setting',
             'title'         => $ret['site_title'],
             'desc'          => $ret['site_desc'],

@@ -2,7 +2,7 @@
 
 namespace Ecc\Topic\Middleware;
 
-use Mphp\Middleware;
+use Vino\Middleware;
 
 /**
  * Class AuthMiddleware

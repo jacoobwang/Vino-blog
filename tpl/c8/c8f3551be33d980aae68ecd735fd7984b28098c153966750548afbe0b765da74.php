@@ -20,7 +20,7 @@ class __TwigTemplate_d7bc9eece7a328eb9937cf3123d9c388641ad95ce64321a441c4260c0aa
 <html>
 <head>
     <meta charset=\"utf-8\" />
-    <title>Mphp-注册页面测试</title>
+    <title>vino-注册页面测试</title>
     <!--用百度的静态资源库的cdn安装bootstrap环境-->
     <!-- Bootstrap 核心 CSS 文件 -->
     <link href=\"http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css\" rel=\"stylesheet\">
@@ -148,6 +148,6 @@ class __TwigTemplate_d7bc9eece7a328eb9937cf3123d9c388641ad95ce64321a441c4260c0aa
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "register.html", "D:\\wamp\\www\\Mphp\\templates\\register.html");
+        return new Twig_Source("", "register.html", "D:\\wamp\\www\\vino\\templates\\register.html");
     }
 }

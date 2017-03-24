@@ -7,10 +7,10 @@
  */
 namespace Ecc\Topic\Model;
 
-use Mphp\App;
-use Mphp\Db;
-use Mphp\QSelect;
-use Mphp\QWhere;
+use Vino\App;
+use Vino\Db;
+use Vino\QSelect;
+use Vino\QWhere;
 
 
 class CateModel

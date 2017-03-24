@@ -1,0 +1,4 @@
+#!/usr/bin/env php
+<?php
+    require 'index_console.php';
+?>

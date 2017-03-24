@@ -36,12 +36,12 @@ class __TwigTemplate_4f3630af6fdf102fcd3dc64a24a0de91ebfeecac99598c9b487aa31a1ee
     <img src=\"";
         // line 12
         echo twig_escape_filter($this->env, (isset($context["JS_CSS_DOMAIN"]) ? $context["JS_CSS_DOMAIN"] : null), "html", null, true);
-        echo "/img/mphp-logo.png\">
+        echo "/img/vino-logo.png\">
     <h1 class=\"title\">";
         // line 13
         echo twig_escape_filter($this->env, (isset($context["title"]) ? $context["title"] : null), "html", null, true);
         echo "</h1>
-    <p>非常感谢您选择了mphp，下面就开始您的web之旅吧！</p>
+    <p>非常感谢您选择了vino，下面就开始您的web之旅吧！</p>
     <p>技术交流或合作，欢迎与我联系qq531532957</p>
     <p>Created By <span>";
         // line 16
@@ -78,6 +78,6 @@ class __TwigTemplate_4f3630af6fdf102fcd3dc64a24a0de91ebfeecac99598c9b487aa31a1ee
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "index.html", "/Users/wangyong/www/mphp/templates/index.html");
+        return new Twig_Source("", "index.html", "/Users/wangyong/www/vino/templates/index.html");
     }
 }

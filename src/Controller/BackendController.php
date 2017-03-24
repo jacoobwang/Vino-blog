@@ -10,7 +10,7 @@ use Ecc\Topic\Service\SettingService;
  * @desc handle api about backend
  * @package Ecc\Topic\Controller
  */
-class BackendController extends \Mphp\BaseController{
+class BackendController extends \Vino\BaseController{
 
     /**
      * do add category method
@@ -78,6 +78,7 @@ class BackendController extends \Mphp\BaseController{
             'post_origin' => $this->getRequest()->post('origin')
         ];
         $data['post_desc'] = substr( preg_replace('/[\s]+/s','',strip_tags($data['post_content'])), 0, 210 );
+        
         $cate = $this->getRequest()->post('category');
         $tags = $this->getRequest()->post('tags');
 
@@ -106,7 +107,7 @@ class BackendController extends \Mphp\BaseController{
         $ret  = $post->update($data, $id);
 
         if($ret){
-            $this->redirectUrl(BASE_URL.'admin/post');
+            $this->redirectUrl(BASE_URL.'/admin/post');
         }
     }
 
@@ -186,10 +187,10 @@ class BackendController extends \Mphp\BaseController{
                         <td class="am-text-middle">'.$post['post_date'].'</td>
                         <td class="am-text-middle">
                             <div class="tpl-table-black-operation">
-                                <a href="'.BASE_URL.'admin/edit/'.$post['id'].'">
+                                <a href="'.BASE_URL.'/admin/edit/'.$post['id'].'">
                                     <i class="am-icon-pencil"></i> 编辑
                                 </a>
-                                <a href="'.BASE_URL.'admin/delete/'.$post['id'].'" class="tpl-table-black-operation-del">
+                                <a href="'.BASE_URL.'/admin/delete/'.$post['id'].'" class="tpl-table-black-operation-del">
                                     <i class="am-icon-trash"></i> 删除
                                 </a>
                             </div>

@@ -7,9 +7,9 @@
  */
 
 return [
-    'default' => [
-        'host' => 'localhost',
-        'port' => 9999,
-        'auth' => '',
-    ]
+  'host' => 'localhost',
+  'port' => 6379,
+  'password' => '',
+  'database' => '',
+  'timeout' => '',
 ];

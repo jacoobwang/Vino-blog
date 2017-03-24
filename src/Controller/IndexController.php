@@ -7,55 +7,71 @@ use Ecc\Topic\Service\PostService;
 use Ecc\Topic\Service\SettingService;
 use Ecc\Topic\Service\UserService;
 
-class IndexController extends \Mphp\BaseController{
+class IndexController extends \Vino\BaseController{
 
 
     /**
      * render index page
      */
     public function indexAction(){
-        $set = new SettingService();
-        $set_data = $set->getSettings();
+        // $redis = $this->di('redis');
+        // $cache = $redis->get('index');
+        // $cachedString = $cache->get();
 
-        $ids = '';
-        $banner_ids = array($set_data['banner1'],$set_data['banner2'],$set_data['banner3'],$set_data['banner4']);
-        foreach($banner_ids as $id){
-            if (preg_match('/post\/(\d+)/',$id,$match)) {
-                $ids .= $match[1].',';
+        $cachedString = null;
+
+        if(is_null($cachedString)){
+            $set = new SettingService();
+            $set_data = $set->getSettings();
+
+            $ids = '';
+            $banner_ids = array($set_data['banner1'],$set_data['banner2'],$set_data['banner3'],$set_data['banner4']);
+            foreach($banner_ids as $id){
+                if (preg_match('/post\/(\d+)/',$id,$match)) {
+                    $ids .= $match[1].',';
+                }
             }
+
+            $cate = new CateService();
+            $cate_data  = $cate->listAll();
+
+            $post       = new PostService();
+            $post_data  = $post->listAll();
+            $label_data = $post->getLabels();
+            $banner_data= $post->getBanner(rtrim($ids, ','));
+            $total      = $post->getPages();
+
+            $admin = new UserService();
+            $admin_data = $admin->getUserById('user_power', 'admin');
+
+            $data = array(
+                'JS_CSS_DOMAIN' => BASE_URL.'/templates/frontend/',
+                'DOMAIN'        => BASE_URL,
+                'title'         => $set_data['site_title'],
+                'description'   => $set_data['site_desc'],
+                'logo'          => $set_data['site_logo'],
+                'posts'         => $post_data,
+                'category'      => $cate_data,
+                'admin_avatar'  => $admin_data['user_avatar'],
+                'admin_name'    => $admin_data['user_nickname'],
+                'admin_profile' => preg_replace('/\s+/','</p><p>',$admin_data['user_profile']),
+                'admin_github'  => $admin_data['user_github'],
+                'admin_weibo'   => $admin_data['user_weibo'],
+                'labels'        => $label_data,
+                'banners'       => $banner_data,
+                'total'         => $total,
+                'page'          => 'home'
+            );
+
+            // $dataString =  serialize($data);
+            // $cache->set($dataString)->expiresAfter(3600);
+            // $redis->set($cache);
+        }else{
+            //$this->di('log')->info(time().'---->redis cache');
+            //$data = unserialize($cachedString);
         }
-
-        $cate = new CateService();
-        $cate_data  = $cate->listAll();
-
-        $post       = new PostService();
-        $post_data  = $post->listAll();
-        $label_data = $post->getLabels();
-        $banner_data= $post->getBanner(rtrim($ids, ','));
-        $total      = $post->getPages();
-
-        $admin = new UserService();
-        $admin_data = $admin->getUserById('user_power', 'admin');
-
-      	$view = $this->di('twig');
-      	echo $view->render('@front/index.html', array(
-      		'JS_CSS_DOMAIN' => BASE_URL.'templates/frontend/',
-            'DOMAIN'        => BASE_URL,
-      		'title'         => $set_data['site_title'],
-            'description'   => $set_data['site_desc'],
-            'logo'          => $set_data['site_logo'],
-            'posts'         => $post_data,
-            'category'      => $cate_data,
-            'admin_avatar'  => $admin_data['user_avatar'],
-            'admin_name'    => $admin_data['user_nickname'],
-            'admin_profile' => preg_replace('/\s+/','</p><p>',$admin_data['user_profile']),
-            'admin_github'  => $admin_data['user_github'],
-            'admin_weibo'   => $admin_data['user_weibo'],
-            'labels'        => $label_data,
-            'banners'       => $banner_data,
-            'total'         => $total,
-            'page'          => 'home'
-      	));
+        $view = $this->di('twig');
+      	echo $view->render('@front/index.html', $data);
     }
 
     /**
@@ -82,7 +98,7 @@ class IndexController extends \Mphp\BaseController{
 
         $view = $this->di('twig');
         echo $view->render('@front/category.html', array(
-            'JS_CSS_DOMAIN' => BASE_URL.'templates/frontend/',
+            'JS_CSS_DOMAIN' => BASE_URL.'/templates/frontend/',
             'DOMAIN'        => BASE_URL,
             'title'         => $set_data['site_title'],
             'description'   => $set_data['site_desc'],
@@ -111,7 +127,7 @@ class IndexController extends \Mphp\BaseController{
 
         $view = $this->di('twig');
         echo $view->render('@front/category.html', array(
-            'JS_CSS_DOMAIN' => BASE_URL.'templates/frontend/',
+            'JS_CSS_DOMAIN' => BASE_URL.'/templates/frontend/',
             'DOMAIN'        => BASE_URL,
             'title'         => $set_data['site_title'],
             'description'   => $set_data['site_desc'],
@@ -147,7 +163,7 @@ class IndexController extends \Mphp\BaseController{
 
         $view = $this->di('twig');
         echo $view->render('@front/post.html', array(
-            'JS_CSS_DOMAIN' => BASE_URL.'templates/frontend/',
+            'JS_CSS_DOMAIN' => BASE_URL.'/templates/frontend/',
             'DOMAIN'        => BASE_URL,
             'title'         => $post_data[0]['post_title'],
             'author'        => $post_data[0]['user_nickname'],
