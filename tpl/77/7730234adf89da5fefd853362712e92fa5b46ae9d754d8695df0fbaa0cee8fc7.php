@@ -22,7 +22,7 @@ class __TwigTemplate_72a3151e5088438a9eb8e6a410b44f356f4d7694fb0207c27adbf933af5
 <head>
     <meta charset=\"utf-8\">
     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
-    <title>Mblog 登录</title>
+    <title>登录</title>
     <meta name=\"description\" content=\"Mblog 登录\">
     <meta name=\"keywords\" content=\"index\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
@@ -74,7 +74,7 @@ class __TwigTemplate_72a3151e5088438a9eb8e6a410b44f356f4d7694fb0207c27adbf933af5
         </div>
         <div class=\"tpl-login\">
             <div class=\"tpl-login-content\">
-                <div class=\"tpl-login-logo\"></div>
+                <h1 style=\"font-size: 30px;text-align: center;color:brown\">Vino-blog</h1>
                 <form class=\"am-form tpl-form-line-form\" action=\"";
         // line 42
         echo twig_escape_filter($this->env, ($context["DOMAIN"] ?? null), "html", null, true);
