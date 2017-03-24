@@ -1,4 +1,4 @@
-const  DOMAIN = 'http://localhost/blog2/';
+const  DOMAIN = 'http://localhost:8080/';
 
 $(function() {
 

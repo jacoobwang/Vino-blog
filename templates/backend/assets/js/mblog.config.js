@@ -3,8 +3,8 @@
  */
 define(function(require, exports, module) {
 
-    exports.root = '//' + location.host +'/blog2/';
+    exports.root = '//' + location.host +'/';
 
-    exports.folder = '/blog2/templates/backend/';
+    exports.folder = '/templates/backend/';
 
 })

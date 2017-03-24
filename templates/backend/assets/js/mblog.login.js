@@ -3,7 +3,8 @@
  */
 
 define(function(require, exports, module){
-    var $    = require("jquery"),
+    var $    = require('jquery'),
+		C	 = require('mblog.config'),
         Rest = require('mblog.rest');
 
     var save = function(){
@@ -15,7 +16,7 @@ define(function(require, exports, module){
             Rest.login(obj).success(function(data){
                 console.log(data);
                 if(data.errno == 0) {
-                    location.href = '/blog2/admin/home';
+                    location.href = C.root + 'admin/home';
                     return;
                 }else {
                     if(typeof data.error === 'string'){

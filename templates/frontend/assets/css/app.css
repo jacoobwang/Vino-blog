@@ -289,6 +289,9 @@ nav a {
     max-width:100%;
     height:auto;
 }
+.blog-entry-img img {
+    max-height: 250px;
+}
 .blog-entry-article {
     margin:3rem 0;
     padding-bottom: 3rem;
@@ -447,6 +450,10 @@ h1 span{
 .blog-h-margin {
     margin:0;
 }
+.blog-h-desc {
+	max-height: 120px;
+	overflow: hidden;
+}
 .am-slider-carousel li {
   margin-right: 25px;
 }
@@ -525,4 +532,10 @@ h1 span{
     float: right;
     height: 50px;
     line-height: 50px;
+}
+.blog-entry-text {
+    overflow: hidden;
+}
+.blog-entry-text h1 {
+    line-height: 30px;
 }

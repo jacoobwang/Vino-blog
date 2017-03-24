@@ -83,7 +83,7 @@ define(function(require, exports, module){
         // 缩略图
         setThumbnail:function(){
             $('#doc-prompt-toggle').on('click', function() {
-                var dialogContent = '<form action="//localhost/blog2/admin/upload" target="upload-image-iframe" method="post" ' +
+                var dialogContent = '<form action="//localhost/mblog/admin/upload" target="upload-image-iframe" method="post" ' +
                         'enctype="multipart/form-data" class="editormd-form"><iframe name="upload-image-iframe" id="upload-image-iframe"></iframe>' +
                             '<label>图片地址</label><input type="text" data-url=""><div class="editormd-file-input">' +
                             '<input type="file" name="upload-image-file" accept="image/*"><input type="submit" value="本地上传"></div></form>';
@@ -109,7 +109,7 @@ define(function(require, exports, module){
                                 alert('Error: picture url address can\'t be empty');
                                 return false;
                             }
-                            $("#thumbnail_cotainer").html("<img style=\"width:200px;height:150px;\" src=\""+ url +"\">");
+                            $("#thumbnail_cotainer").html("<img style=\"width:100%;height:100%;\" src=\""+ url +"\">");
                             this.hide().lockScreen(false).hideMask();
                             return false;
                         }],
