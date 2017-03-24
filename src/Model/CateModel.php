@@ -22,7 +22,7 @@ class CateModel
     /**
      * @var string
      */
-    private $table = 'mblog_cate';
+    private $table = 'vino_blog_cate';
 
     public function __construct() {
         $this->di = App::getSingleton()->getSingleton()->di();

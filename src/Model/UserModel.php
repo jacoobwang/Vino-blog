@@ -27,7 +27,7 @@ class UserModel
     /**
      * @var string
      */
-    private $table = 'mblog_users';
+    private $table = 'vino_blog_users';
 
     public function __construct(){
         $this->di = App::getSingleton()->getSingleton()->di();

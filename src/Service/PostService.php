@@ -46,13 +46,13 @@ class PostService {
         $num = $this->num; //每页数量
         $start = $num * ($cur -1); //分页的初始行
 
-        $sql = 'SELECT mblog_posts.*,mblog_users.user_nickname FROM mblog_posts LEFT JOIN mblog_users ON mblog_posts.post_author = mblog_users.id WHERE post_status = \'publish\' LIMIT '. $start .','. $num;
+        $sql = 'SELECT vino_blog_posts.*,vino_blog_users.user_nickname FROM vino_blog_posts LEFT JOIN vino_blog_users ON vino_blog_posts.post_author = vino_blog_users.id WHERE post_status = \'publish\' LIMIT '. $start .','. $num;
         $ret = $this->instance->query($sql);
 
         /**
             if($ret) {
                 foreach ($ret as $k => $val) {
-                    $cate_sql = 'SELECT cate.* FROM mblog_cate cate INNER JOIN mblog_label label ON cate.term_id = label.label AND label.post_id = ' . $val['id'];
+                    $cate_sql = 'SELECT cate.* FROM vino_blog_cate cate INNER JOIN vino_blog_label label ON cate.term_id = label.label AND label.post_id = ' . $val['id'];
                     $cate = $this->instance->query($cate_sql);
 
                     $ret[$k]['category'] = $cate;
@@ -73,8 +73,8 @@ class PostService {
         $num = $this->num; //每页数量
         $start = $num * ($cur -1); //分页的初始行
 
-        $sql = 'SELECT mblog_posts.*,mblog_users.user_nickname FROM mblog_posts INNER JOIN mblog_label ON mblog_posts.id = mblog_label.post_id
- INNER JOIN mblog_users ON mblog_posts.post_author = mblog_users.id WHERE mblog_posts.post_status=\'publish\' AND mblog_label.label = '. $id .' LIMIT '. $start .','. $num;
+        $sql = 'SELECT vino_blog_posts.*,vino_blog_users.user_nickname FROM vino_blog_posts INNER JOIN vino_blog_label ON vino_blog_posts.id = vino_blog_label.post_id
+ INNER JOIN vino_blog_users ON vino_blog_posts.post_author = vino_blog_users.id WHERE vino_blog_posts.post_status=\'publish\' AND vino_blog_label.label = '. $id .' LIMIT '. $start .','. $num;
         $ret = $this->instance->query($sql);
 
         return $ret;
@@ -87,13 +87,13 @@ class PostService {
      * @return mixed
      */
     public function listTag($slug, $num=10){
-        $sql = 'SELECT mblog_posts.*,mblog_users.user_nickname FROM mblog_posts INNER JOIN mblog_label ON mblog_posts.id = mblog_label.post_id
- LEFT JOIN mblog_users ON mblog_posts.post_author = mblog_users.id WHERE mblog_posts.post_status=\'publish\' AND mblog_label.label = \''. $slug .'\' LIMIT '.$num;
+        $sql = 'SELECT vino_blog_posts.*,vino_blog_users.user_nickname FROM vino_blog_posts INNER JOIN vino_blog_label ON vino_blog_posts.id = vino_blog_label.post_id
+ LEFT JOIN vino_blog_users ON vino_blog_posts.post_author = vino_blog_users.id WHERE vino_blog_posts.post_status=\'publish\' AND vino_blog_label.label = \''. $slug .'\' LIMIT '.$num;
         $ret = $this->instance->query($sql);
 
         if($ret) {
             foreach ($ret as $k => $val) {
-                $cate_sql = 'SELECT cate.* FROM mblog_cate cate INNER JOIN mblog_label label ON cate.term_id = label.label AND label.post_id = ' . $val['id'];
+                $cate_sql = 'SELECT cate.* FROM vino_blog_cate cate INNER JOIN vino_blog_label label ON cate.term_id = label.label AND label.post_id = ' . $val['id'];
                 $cate = $this->instance->query($cate_sql);
 
                 $ret[$k]['category'] = $cate;
@@ -109,14 +109,14 @@ class PostService {
      * @return mixed
      */
     public function listOne($column, $value){
-        $sql = 'SELECT mblog_posts.*,mblog_users.user_avatar,mblog_users.user_nickname,mblog_users.user_profile FROM mblog_posts
-LEFT JOIN mblog_users ON mblog_posts.post_author = mblog_users.id AND mblog_posts.'. $column .'='. $value .'  LIMIT 1';
+        $sql = 'SELECT vino_blog_posts.*,vino_blog_users.user_avatar,vino_blog_users.user_nickname,vino_blog_users.user_profile FROM vino_blog_posts
+LEFT JOIN vino_blog_users ON vino_blog_posts.post_author = vino_blog_users.id AND vino_blog_posts.'. $column .'='. $value .'  LIMIT 1';
         $ret = $this->instance->query($sql);
 
         if($ret) {
             foreach ($ret as $k => $val) {
 
-                $cate_sql = 'SELECT cate.* FROM mblog_cate cate INNER JOIN mblog_label label ON cate.term_id = label.label AND label.post_id = ' . $val['id'];
+                $cate_sql = 'SELECT cate.* FROM vino_blog_cate cate INNER JOIN vino_blog_label label ON cate.term_id = label.label AND label.post_id = ' . $val['id'];
                 $cate = $this->instance->query($cate_sql);
 
                 $ret[$k]['category'] = $cate;
@@ -204,7 +204,7 @@ LEFT JOIN mblog_users ON mblog_posts.post_author = mblog_users.id AND mblog_post
      * @return mixed
      */
     public function getBanner($id){
-        $sql = 'SELECT id,post_title,post_desc,post_date,post_author,post_origin FROM mblog_posts WHERE id IN ('. $id .')';
+        $sql = 'SELECT id,post_title,post_desc,post_date,post_author,post_origin FROM vino_blog_posts WHERE id IN ('. $id .')';
         $ret = $this->instance->query($sql);
 
         return $ret;
@@ -215,7 +215,7 @@ LEFT JOIN mblog_users ON mblog_posts.post_author = mblog_users.id AND mblog_post
      * @return mixed
      */
     public function getNext($id){
-        $sql = 'SELECT id,post_title FROM mblog_posts WHERE id > '. $id .' LIMIT 1';
+        $sql = 'SELECT id,post_title FROM vino_blog_posts WHERE id > '. $id .' LIMIT 1';
         $ret = $this->instance->query($sql);
 
         return $ret;
@@ -226,7 +226,7 @@ LEFT JOIN mblog_users ON mblog_posts.post_author = mblog_users.id AND mblog_post
      * @return mixed
      */
     public function getLast($id){
-        $sql = 'SELECT id,post_title FROM mblog_posts WHERE id < '. $id .' ORDER BY id DESC LIMIT 1';
+        $sql = 'SELECT id,post_title FROM vino_blog_posts WHERE id < '. $id .' ORDER BY id DESC LIMIT 1';
         $ret = $this->instance->query($sql);
 
         return $ret;
@@ -238,9 +238,9 @@ LEFT JOIN mblog_users ON mblog_posts.post_author = mblog_users.id AND mblog_post
      */
     public function getPages($cat = ''){
         if (empty($cat)) {
-            $sql = 'SELECT count(id) AS total FROM mblog_posts WHERE post_status = \'publish\'';
+            $sql = 'SELECT count(id) AS total FROM vino_blog_posts WHERE post_status = \'publish\'';
         } else {
-            $sql = 'SELECT count(id) AS total FROM mblog_posts WHERE post_status = \'publish\' AND id in (SELECT post_id FROM mblog_label WHERE label='.$cat.' AND type=\'category\')';
+            $sql = 'SELECT count(id) AS total FROM vino_blog_posts WHERE post_status = \'publish\' AND id in (SELECT post_id FROM vino_blog_label WHERE label='.$cat.' AND type=\'category\')';
         }
 
         $ret = $this->instance->query($sql);

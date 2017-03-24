@@ -22,7 +22,7 @@ class LabelModel
     /**
      * @var string
      */
-    private $table = 'mblog_label';
+    private $table = 'vino_blog_label';
 
     public function __construct(){
         $this->di = App::getSingleton()->getSingleton()->di();

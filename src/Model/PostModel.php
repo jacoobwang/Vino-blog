@@ -20,7 +20,7 @@ class PostModel{
     /**
      * @var string
      */
-    private $table = 'mblog_posts';
+    private $table = 'vino_blog_posts';
 
     /**
      * @throws \Exception

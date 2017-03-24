@@ -21,7 +21,7 @@ class SettingModel
     /**
      * @var string
      */
-    private $table = 'mblog_setting';
+    private $table = 'vino_blog_setting';
 
     /**
      * @throws \Exception
