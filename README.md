@@ -1,4 +1,4 @@
-# Vino-blog
+# Vino-blog一款用PHP开发的markdown博客系统
 
 欢迎使用Vino-blog创建你的个人博客，它是一款支持markdown的博客引擎。
 
