@@ -26,13 +26,13 @@
 
 ```shell
 # cd vino_blog 先进入下载目录执行下面命令 
-mysql -u用户名 -p密码 < vino_blog.sql
+mysql -u用户名 -p密码 < vino-blog.sql
 ```
 
 windows下可进入mysql终端执行source命令
 
 ```mysql
-source vino_blog.sql
+source vino-blog.sql
 ```
 
 3.若是linux：
