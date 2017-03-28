@@ -110,7 +110,7 @@ class PostService {
      */
     public function listOne($column, $value){
         $sql = 'SELECT vino_blog_posts.*,vino_blog_users.user_avatar,vino_blog_users.user_nickname,vino_blog_users.user_profile FROM vino_blog_posts
-LEFT JOIN vino_blog_users ON vino_blog_posts.post_author = vino_blog_users.id AND vino_blog_posts.'. $column .'='. $value .'  LIMIT 1';
+LEFT JOIN vino_blog_users ON vino_blog_posts.post_author = vino_blog_users.id WHERE vino_blog_posts.'. $column .'='. $value .'  LIMIT 1';
         $ret = $this->instance->query($sql);
 
         if($ret) {
