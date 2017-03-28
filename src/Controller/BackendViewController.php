@@ -113,7 +113,7 @@ class BackendViewController extends \Vino\BaseController{
             'user'          => $this->_getUser(),
             'page'          => 'category',
             'datas'         => $data,
-            'edit_prefix'   => BASE_URL.'admin/category/edit/'
+            'edit_prefix'   => BASE_URL.'/admin/category/edit/'
         ));
     }
 
