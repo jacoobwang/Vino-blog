@@ -81,8 +81,6 @@ php -S localhost:8081   #端口号任意
 
 
 
-> 有兴趣可以访问这个站点：http://ec2-52-37-198-187.us-west-2.compute.amazonaws.com/
-
-> 最好使用VPN访问，因为是美国的aws节点，国内访问很慢。
+> 有兴趣可以访问这个站点：http://vinoblog.tech
 
 另外可以直接下载本项目到本地体验，若有不懂，欢迎提issues～～～
