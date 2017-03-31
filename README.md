@@ -1,86 +1,87 @@
 # Vino-blog一款用PHP开发的markdown博客系统
 
-欢迎使用Vino-blog创建你的个人博客，它是一款支持markdown的博客引擎。
+
+
+<p align="center"><a href="http://vino-blog.tech"><img src="https://jacoobwang.github.io/vino/logo.png"></a></p>
+
+<p align="center">🎈 Vino-blog  是一款开源的博客引擎，它使用vino(php框架)和amaze ui构建. <a href="http://vinoblog.tech">http://vinoblog.tech</a>
 
 ## 特性
 
-1.php+mysql动态站点，集成前后台，快速安装，快速拥有一个博客
+- php+mysql动态站点，集成前后台，快速安装，快速拥有一个博客
+- 支持markdown发布文章，排版方便，减少像Wordpress那样大量p标签造成空行不一致的痛苦
+- 快速高效，经个人压测结果，比Wordpress至少快3-5倍
+- 后台界面清新美观，前台主题可自由开发，使用twig模版引擎
+- 使用vino框架底层驱动，是一款轻量级框架
+- 容易二次开发，只要懂html+css及简单学习twig即可定制博客模版
+- 文章和分类管理
+- 首页轮播图和个人信息配置
+- 后台支持两个色系的UI
 
-2.支持markdown发布文章，排版方便，减少像Wordpress那样大量p标签造成空行不一致的痛苦
+## 预览
 
-3.快速高效，经个人压测结果，比Wordpress至少快3-5倍
+![屏幕快照 2017-03-31 下午5.21.51](/Users/wangyong/Desktop/屏幕快照 2017-03-31 下午5.21.51.png)
 
-4.后台界面清新美观，前台主题可自由开发，使用twig模版引擎
+![屏幕快照 2017-03-31 下午5.22.28](/Users/wangyong/Desktop/屏幕快照 2017-03-31 下午5.22.28.png)
 
-5.使用vino框架底层驱动，是一款轻量级框架
+![屏幕快照 2017-03-31 下午5.26.46](/Users/wangyong/Desktop/屏幕快照 2017-03-31 下午5.26.46.png)
 
-6.容易二次开发，只要懂html+css及简单学习twig即可定制博客模版
-
-7.持续迭代+国人开发
+![屏幕快照 2017-03-31 下午5.27.10](/Users/wangyong/Desktop/屏幕快照 2017-03-31 下午5.27.10.png)
 
 ## 安装
 
-"需要 php 版本大于等于 php5.5"
+> 需要 php 版本大于等于 php5.5
 
-1.下载该git库
+#### 1.下载该git库或者通过composer安装
 
-2.导入数据库，可使用phpmyadmin导入，也可使用命令 
+git 方式
+
+```shell
+git clone https://github.com/jacoobwang/Vino-blog.git
+```
+
+composer 方式，需要先安装composer
+
+```shell
+composer create-project jacoob/vino-blog
+```
+
+#### 2.导入数据库，可使用phpmyadmin导入，也可使用命令
+
+Linux下 
 
 ```shell
 # cd vino_blog 先进入下载目录执行下面命令 
 mysql -u用户名 -p密码 < vino-blog.sql
 ```
 
-windows下可进入mysql终端执行source命令
+windows下
 
 ```mysql
+进入mysql terminal执行
 source vino-blog.sql
 ```
 
-3.若是linux：
+#### 3.启动php server
+
+linux下
 
 ```shell
-# 安装依赖库
-php vino-cli install
-# run 一个server
 php vino-cli server
 ```
 
-若是windows
-
-​    1⃣️.安装composer 参考 http://docs.phpcomposer.com/00-intro.html#Installation-Windows
-
-​    2⃣️.通过composer安装依赖，执行命令
+windows下
 
 ```shell
-# composer全局安装
-composer install
-# composer局部安装
-php composer.phar install
-```
-
-​    3⃣️.执行命令 
-
-```shell
+项目目录下执行
 php -S localhost:8081   #端口号任意
 ```
 
+## Thanks
 
+- [Amazeui](http://amazeui.org)
+-  [Vino](https://jacoobwang.github.io/vino/vino.html)
 
-### 使用Vino-blog可以方便快速的创建个性化博客站点！！！
+## License
 
-下面是Vino-blog的后台界面一个截图，
-
-![admin1](./admin1.png)
-
-
-
-再看看它的首页
-
-![home](./home.png)
-
-
-
-> 有兴趣可以访问这个站点：http://vinoblog.tech
-
-另外可以直接下载本项目到本地体验，若有不懂，欢迎提issues～～～
+The project is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
