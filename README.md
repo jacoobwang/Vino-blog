@@ -6,7 +6,7 @@
 
 <p align="center">🎈 Vino-blog  是一款开源的博客引擎，它使用vino(php框架)和amaze ui构建. <a href="http://vinoblog.tech">http://vinoblog.tech</a>
 
-## 特性
+## Features
 
 - php+mysql动态站点，集成前后台，快速安装，快速拥有一个博客
 - 支持markdown发布文章，减少Wordpress排版的痛苦
@@ -17,7 +17,7 @@
 - 首页轮播图和个人信息配置
 - 后台支持两个色系的UI，可自由切换
 
-## 预览
+## Screenshot
 
 ![屏幕快照 2017-03-31 下午5.21.51](./screenshot/home1.png)
 
@@ -27,7 +27,7 @@
 
 ![屏幕快照 2017-03-31 下午5.27.10](./screenshot/admin2.png)
 
-## 安装
+## Install
 
 > 需要 php 版本大于等于 php5.5.9
 
