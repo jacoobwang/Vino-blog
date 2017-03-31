@@ -9,14 +9,13 @@
 ## 特性
 
 - php+mysql动态站点，集成前后台，快速安装，快速拥有一个博客
-- 支持markdown发布文章，排版方便，减少像Wordpress那样大量p标签造成空行不一致的痛苦
-- 快速高效，经个人压测结果，比Wordpress至少快3-5倍
-- 后台界面清新美观，前台主题可自由开发，使用twig模版引擎
-- 使用vino框架底层驱动，是一款轻量级框架
-- 容易二次开发，只要懂html+css及简单学习twig即可定制博客模版
-- 文章和分类管理
+- 支持markdown发布文章，减少Wordpress排版的痛苦
+- 高性能，经压测显示，比Wordpress至少快3-5倍
+- 前台主题可自由开发，使用twig模版引擎，易二次开发
+- 使用vino框架底层驱动，vino是一款轻量级框架
+- 文章和分类管理及标签管理
 - 首页轮播图和个人信息配置
-- 后台支持两个色系的UI
+- 后台支持两个色系的UI，可自由切换
 
 ## 预览
 
@@ -80,7 +79,7 @@ php -S localhost:8081   #端口号任意
 ## Thanks
 
 - [Amazeui](http://amazeui.org)
--  [Vino](https://jacoobwang.github.io/vino/vino.html)
+- [Vino](https://jacoobwang.github.io/vino/vino.html)
 
 ## License
 
