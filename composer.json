@@ -1,4 +1,9 @@
 {
+  "name": "jacoob/vino-blog",
+  "description": "A markdown-support,easy-to-use,well-expanded blog system powered by vino and amaze ui.",
+  "keywords": ["blog","markdow","amazue"],
+  "license": "MIT",
+  "type": "project",
   "autoload": { 
     "psr-4": {
       "Ecc\\Topic\\": "src/",
