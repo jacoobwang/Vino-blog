@@ -103,6 +103,7 @@ class Commander extends ConsoleHelper {
     {
         $descriptions = [
             'composer' => 'Allows you manage composer here',
+            'db'       => 'Helps you to create mysql data', 
             'server'   => 'Allows you to run php server',
         ];    
 
@@ -115,6 +116,16 @@ class Commander extends ConsoleHelper {
      */
     protected function getDefaultHelpHeader()
     {
+        if(PHP_OS == "WINNT"){
+            return "
+ __      __  _____   _   _    ____
+ \ \    / / |_   _| | \ | |  / __ \
+  \ \  / /    | |   |  \| | | |  | |
+   \ \/ /     | |   | . ` | | |  | |
+    \  /     _| |_  | |\  | | |__| |
+     \/     |_____| |_| \_|  \____/
+            ";
+        }
         return "
         #   .----------------.  .----------------.  .-----------------. .----------------. 
         #  | .--------------. || .--------------. || .--------------. || .--------------. |

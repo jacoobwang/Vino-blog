@@ -1,11 +1,12 @@
 <?php
+namespace console;
 /**
  * Created by PhpStorm.
  * User: Jacoob
  * Date: 21/03/17
  * Time: 10:50 AM
  */
-namespace console;
+defined('SITE_ROOT')  or define('SITE_ROOT',  __DIR__);
 
 if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     require __DIR__ . '/vendor/autoload.php';

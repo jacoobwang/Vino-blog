@@ -93,7 +93,7 @@ class __TwigTemplate_c6305c376bd0a835110d5f256deed43e059dd6571e5317ef1e51356ef8b
                         <a href=\"";
         // line 51
         echo twig_escape_filter($this->env, ($context["DOMAIN"] ?? null), "html", null, true);
-        echo "admin/logout\">
+        echo "/admin/logout\">
                             <span class=\"am-icon-sign-out\"></span> 退出
                         </a>
                     </li>
