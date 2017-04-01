@@ -108,7 +108,7 @@ class Application {
         if ($this->checkVaild($cls_name)) {
             $inis = new $cls_name();
             if (method_exists($cls_name,$func)) {
-                $inis->$func();
+                $inis->$func($params);
                 exit;
             }
             $inis->actionIndex($_params);

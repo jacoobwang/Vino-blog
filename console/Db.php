@@ -73,6 +73,30 @@ class Db extends ConsoleHelper {
     }
 
     /**
+     * reset passsword
+     * 
+     * @param array $params
+     * @return void
+     */
+    public function actionResetpwd($params = [])
+    {
+        $pwd = $params[0];
+        if (!empty($pwd)) {
+            $md5 = md5($pwd);
+        }
+        $sql = "UPDATE `vino_blog_users` SET `user_pass` = '{$md5}' WHERE `id` = 1 LIMIT 1";
+
+        $this->loadConfig();
+        $dbh = new \PDO($this->_config["dsn"], $this->_config["username"], $this->_config["password"]);
+        if ($dbh){
+            $dbh->exec($sql);
+            $this->stdout("Password is reset successed \n");
+        } else {
+            $this->stdout("Sorry,Failed \n");
+        }
+    }
+
+    /**
      * create database
      * @param $link
      */
