@@ -49,7 +49,7 @@ composer create-project jacoob/vino-blog
 
 #### 2.导入数据库，推荐大家使用vino-cli
 
-**Linux & windows下 **
+**Linux & windows下**
 
 ```shell
 # 项目目录执行下面命令 
