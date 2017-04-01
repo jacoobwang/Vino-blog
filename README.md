@@ -33,47 +33,36 @@
 
 #### 1.下载该git库或者通过composer安装
 
-git 方式
+**git 方式**
 
 ```shell
 git clone https://github.com/jacoobwang/Vino-blog.git
 ```
 
-composer 方式，需要先安装composer
+**composer方式**
+
+composer地址 https://packagist.org/packages/jacoob/vino-blog
 
 ```shell
 composer create-project jacoob/vino-blog
 ```
 
-#### 2.导入数据库，可使用phpmyadmin导入，也可使用命令
+#### 2.导入数据库，推荐大家使用vino-cli
 
-Linux下 
+**Linux & windows下 **
 
 ```shell
-# cd vino_blog 先进入下载目录执行下面命令 
-mysql -u用户名 -p密码 < vino-blog.sql
-```
-
-windows下
-
-```mysql
-进入mysql terminal执行
-source vino-blog.sql
+# 项目目录执行下面命令 
+php vino-cli init
 ```
 
 #### 3.启动php server
 
-linux下
+**Linux & windows下**
 
 ```shell
+# 项目目录执行下面命令 
 php vino-cli server
-```
-
-windows下
-
-```shell
-项目目录下执行
-php -S localhost:8081   #端口号任意
 ```
 
 ## Thanks
