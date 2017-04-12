@@ -1,5 +1,5 @@
 <?php
-namespace Mphp;
+namespace Vino;
 /*
  * jQuery File Upload Plugin PHP Class
  * https://github.com/blueimp/jQuery-File-Upload
