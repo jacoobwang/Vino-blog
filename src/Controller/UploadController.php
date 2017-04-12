@@ -7,9 +7,9 @@
  */
 namespace Ecc\Topic\Controller;
 
-use vino\UploadHandler;
-use vino\Utils;
-use vino\Qiniu;
+use Vino\UploadHandler;
+use Vino\Utils;
+use Vino\Qiniu;
 
 class UploadController extends \Vino\BaseController
 {
@@ -24,14 +24,14 @@ class UploadController extends \Vino\BaseController
         $upload = new UploadHandler(
             array(
                 'upload_dir' =>SITE_ROOT.$upload_folder,
-                'param_name' => 'upload-image-file',
+                'param_name' => 'editormd-image-file',
                 'upload_url' => Utils::get_full_url().$upload_folder,
                 'print_response' => false
             )
         );
 
         // 获取图片处理后的response
-        $response = $upload->response['upload-image-file'][0];
+        $response = $upload->response['editormd-image-file'][0];
         $error = (isset($response->error)) ? $response->error : false;
 
         // 返回json给前端
@@ -61,7 +61,7 @@ class UploadController extends \Vino\BaseController
 		}
 
 		$accessKey = 'QSAoVUSJKWp9SiWmlVgIXKRJbv-ckHK5bbED8TtE';
-		$secretKey = 'xU58XQ11ZeM574D0ELrs7VJ_UoQ2QnVLFda6O5Rd';
+		$secretKey = 'xxxxxxxxxxxx';
 		$bucket	   = 'jacoob';
 
 		$Qiniu = new Qiniu($accessKey, $secretKey, $bucket);
