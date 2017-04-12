@@ -223,7 +223,6 @@ a {
     color:#10D07A;
 }
 .blog-header {
-    padding-top:3rem;
     color: #fff;
 }
 @media only screen and (max-width:640px) {
@@ -308,6 +307,8 @@ nav a {
 }
 .blog-entry-text h1 {
     margin-top:0;
+    font-weight:normal;
+    font-family:PingFang SC,Verdana,Helvetica Neue,Microsoft Yahei,Hiragino Sans GB,Microsoft Sans Serif,WenQuanYi Micro Hei,sans-serif;
     color:#3d3d3d;
 }
 .blog-sidebar {
@@ -361,6 +362,7 @@ h1 span{
     float:left;
     border: 1px solid #eee;
     padding:0.2rem 0.8rem 0.2rem 0.8rem;
+    font-size: 14px;
 }
 .blog-tag:hover {
     background:#10D07A;
@@ -453,6 +455,7 @@ h1 span{
 .blog-h-desc {
 	max-height: 120px;
 	overflow: hidden;
+	font-size: 14px;
 }
 .am-slider-carousel li {
   margin-right: 25px;
@@ -537,4 +540,17 @@ h1 span{
 }
 .blog-entry-text h1 {
     line-height: 30px;
+}
+.blog-entry-text span {
+    font-size:12px;
+    color: #ccc;
+}
+.blog-entry-text p {
+    font-size:15px;
+}
+h2 {
+    font-weight: normal;
+}
+.blog-sidebar-widget p {
+    font-size: 14px;
 }
