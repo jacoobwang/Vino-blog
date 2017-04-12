@@ -46,7 +46,7 @@ class PostService {
         $num = $this->num; //每页数量
         $start = $num * ($cur -1); //分页的初始行
 
-        $sql = 'SELECT vino_blog_posts.*,vino_blog_users.user_nickname FROM vino_blog_posts LEFT JOIN vino_blog_users ON vino_blog_posts.post_author = vino_blog_users.id WHERE post_status = \'publish\' LIMIT '. $start .','. $num;
+        $sql = 'SELECT vino_blog_posts.*,vino_blog_users.user_nickname FROM vino_blog_posts LEFT JOIN vino_blog_users ON vino_blog_posts.post_author = vino_blog_users.id WHERE post_status = \'publish\' ORDER BY id DESC LIMIT '. $start .','. $num ;
         $ret = $this->instance->query($sql);
 
         /**
