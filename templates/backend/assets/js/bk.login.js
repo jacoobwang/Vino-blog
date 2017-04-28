@@ -4,8 +4,8 @@
 
 define(function(require, exports, module){
     var $    = require('jquery'),
-		C	 = require('mblog.config'),
-        Rest = require('mblog.rest');
+		C	 = require('bk.config'),
+        Rest = require('bk.rest');
 
     var save = function(){
         $('.tpl-login-btn').on('click', function(){

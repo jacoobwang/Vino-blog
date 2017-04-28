@@ -4,7 +4,7 @@
 
 define(function(require, exports, module){
     var $    = require("jquery"),
-        Rest = require('mblog.rest');
+        Rest = require('bk.rest');
 
     var save = function(){
         $('#js_save_btn').on('click', function(){

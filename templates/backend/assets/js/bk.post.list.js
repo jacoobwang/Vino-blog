@@ -2,7 +2,7 @@
  * Created by wangyong7 on 2017/2/7.
  */
 define(function(require, exports, module){
-    var Rest = require('mblog.rest');
+    var Rest = require('bk.rest');
 
     var current_page = parseInt($('#page_num').html()),
         total_page   = parseInt($('#page_total').html());

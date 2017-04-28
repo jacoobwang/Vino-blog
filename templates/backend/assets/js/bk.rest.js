@@ -2,7 +2,7 @@
  * Created by wangyong7 on 2017/1/13.
  */
 define(function(require, exports, module) {
-    var C = require('./mblog.config');
+    var C = require('./bk.config');
 
     var defaults = {
         dataType : "json"

@@ -2,9 +2,9 @@
  * Created by wangyong7 on 2017/1/17.
  */
 define(function(require, exports, module){
-    var RestApi = require('./mblog.rest'),
-        Fun     = require('./mblog.func'),
-        C       = require('./mblog.config'),
+    var RestApi = require('./bk.rest'),
+        Fun     = require('./bk.func'),
+        C       = require('./bk.config'),
         editormd = require("editormd");
 
     require("./editor.md/plugins/image-dialog/image-dialog");
@@ -83,7 +83,7 @@ define(function(require, exports, module){
         // 缩略图
         setThumbnail:function(){
             $('#doc-prompt-toggle').on('click', function() {
-                var dialogContent = '<form action="//localhost/mblog/admin/upload" target="upload-image-iframe" method="post" ' +
+                var dialogContent = '<form action="//'+location.host+'/admin/upload" target="upload-image-iframe" method="post" ' +
                         'enctype="multipart/form-data" class="editormd-form"><iframe name="upload-image-iframe" id="upload-image-iframe"></iframe>' +
                             '<label>图片地址</label><input type="text" data-url=""><div class="editormd-file-input">' +
                             '<input type="file" name="upload-image-file" accept="image/*"><input type="submit" value="本地上传"></div></form>';

@@ -3,8 +3,8 @@
  */
 define(function(require, exports, module) {
 
-    var RestApi = require('./mblog.rest'),
-        Fun     = require('./mblog.func');
+    var RestApi = require('./bk.rest'),
+        Fun     = require('./bk.func');
 
     var Events = {
 

@@ -3,8 +3,8 @@
  */
 
 define(function(require, exports, module){
-    var Rest = require('mblog.rest'),
-        Fun  = require('mblog.func');
+    var Rest = require('bk.rest'),
+        Fun  = require('bk.func');
 
     var save = function(){
         $('#js_save_btn').on('click', function(){
